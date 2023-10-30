@@ -1,97 +1,83 @@
+/* General Styles */
 body {
-    background-color: #2C3E50;
-    padding: 10px;
-    text-align: center;
-    color: #EAEDED;
-    font-family: Arial, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
 
-  header {
-    background-color: #34495E;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-    color: #EAEDED;
-    border-bottom: 1px solid #7F8C8D;
-  }
+header {
+  background-color: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
 
-  section {
-    background-color: #34495E;
-    padding: 20px;
-    color: #EAEDED;
-  }
+h2, h3 {
+  margin-top: 1rem;
+}
 
-  h2 {
-    margin: 15px 0;
-  }
+section {
+  margin: 2rem auto;
+  width: 80%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  .container {
-    width: 31.7%;
-    float: left;
-    clear: right;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #7F8C8D;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+/* Task Lists Styles */
+div {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1rem;
+}
 
-  .container:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
+a {
+  display: inline-block;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+}
 
-  .sortable {
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-    min-height: 30px;
-    border-radius: 5px;
-    background-color: #34495E;
-  }
+a:hover {
+  background-color: #0056b3;
+}
 
-  .sortable li {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 1.4em;
-    background-color: #2C3E50;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
+form {
+  display: inline-block;
+  margin-right: 10px;
+}
 
-  .sortable li:hover {
-    transform: scale(1.03);
-  }
+input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
 
-  .card {
-    background-color: #2C3E50;
-    border-radius: 5px;
-  }
+input[type="submit"] {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  form input[type="submit"] {
-    margin: 10px;
-    padding: 5px 10px;
-    background-color: #E74C3C;
-    color: #EAEDED;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
+input[type="submit"]:hover {
+  background-color: #ddd;
+}
 
-  form input[type="submit"]:hover {
-    background-color: #C0392B;
-  }
+/* Logout Button */
+section:last-child {
+  text-align: center;
+  margin-top: 2rem;
+}
 
-  form input[type="text"],
-  form select {
-    padding: 10px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #EAEDED;
-    color: #333;
-  }
-
-  li span {
-    margin-left: 10px;
-  }
+section:last-child form {
+  display: inline-block;
+  margin: 0 auto;
+}

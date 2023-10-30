@@ -1,53 +1,28 @@
-# Kanban-Board 📋
+# KanBan Web Application
 
-This project is an implementation of a Kanban Board with three sections "To do", "Doing", and "Done" created in Flask. 
-<img width="1280" alt="Screen Shot 2019-03-17 at 15 00 34" src="https://user-images.githubusercontent.com/29481335/54495832-66630280-48c6-11e9-8b5c-27e52b927f53.png">
+A simple and intuitive web application for managing tasks and subtasks. Built with Flask and integrated with a SQLite database, this application allows users to create, update, and delete task lists, tasks, and subtasks.
 
-# Functionality
-1. Register new users. The password should contain at least 8 symbols.
-2. Log in with user's credentials.
-3. Add tasks to any of the categories.
-4. Delete tasks.
-5. Transfer tasks from "To Do" to "Doing" and from "Doing" to "Done".
-6. Logout from the app.
+## 🌟 Features
 
-Each user can maintain their own Kanban board that is not visible to other users.
+- **User Authentication**: Register, login, and logout functionality.
+- **Task Lists**: Create, view, update, and delete personalized task lists.
+- **Tasks & Subtasks**: Add tasks to a list and further break them down into subtasks. Update their status, rename, or delete them as needed.
+- **Interactive UI**: Easily toggle the visibility of subtasks and get a clear overview of your tasks' status.
 
-To run it on your computer, clone the repository and do the set up from the `'.../Kanban-Board-master/'`  directory. 
+## 🔧 Setup and Installation
+Set up the Virtual Environment: 
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
+Install Required Packages:
+pip install -r requirements.txt
 
- ## Set Up Virtual Environment and Requirements
-```python
-python3 -m venv .venv
-pip3 install -r requirements.txt
+📖 Usage
+Register or Login: Start by registering a new account or logging in if you already have one.
+Manage Task Lists: Create new task lists, view them, update their names, or delete them.
+Manage Tasks: Within a task list, add new tasks, update their names or status, and delete them.
+Manage Subtasks: For each task, you can add subtasks, update their names or status, and delete them.
 
+Open a web browser and navigate to http://127.0.0.1:5000/ to access the application.
 
-```
-
-## Set Up the Database
-```python
-#run from the Python shell (by typing python3 in the terminal)
-from kanban import db
-db.create_all()
-exit()
-```
- 
-
-## Run the App 
-```python
-
-python kanban.py
- 
-#Then go to --> http://127.0.0.1:5000/ <--
- ```
- 
- ## Run the Unit Tests 
- 
- ```python
- 
- #from the directory '.../tests/'
- 
- python tests.py
- ```
-
-
+Loom Video Demonstration: https://www.loom.com/share/6856e9fc40f6485cb1bcdcc991a2295e
