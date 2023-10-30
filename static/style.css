@@ -1,0 +1,97 @@
+body {
+    background-color: #2C3E50;
+    padding: 10px;
+    text-align: center;
+    color: #EAEDED;
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    background-color: #34495E;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: #EAEDED;
+    border-bottom: 1px solid #7F8C8D;
+  }
+
+  section {
+    background-color: #34495E;
+    padding: 20px;
+    color: #EAEDED;
+  }
+
+  h2 {
+    margin: 15px 0;
+  }
+
+  .container {
+    width: 31.7%;
+    float: left;
+    clear: right;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #7F8C8D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    min-height: 30px;
+    border-radius: 5px;
+    background-color: #34495E;
+  }
+
+  .sortable li {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.4em;
+    background-color: #2C3E50;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+
+  .sortable li:hover {
+    transform: scale(1.03);
+  }
+
+  .card {
+    background-color: #2C3E50;
+    border-radius: 5px;
+  }
+
+  form input[type="submit"] {
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: #E74C3C;
+    color: #EAEDED;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #C0392B;
+  }
+
+  form input[type="text"],
+  form select {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EAEDED;
+    color: #333;
+  }
+
+  li span {
+    margin-left: 10px;
+  }
