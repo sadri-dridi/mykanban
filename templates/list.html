@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{{ todolist.name }}</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Additional styles to handle the UI for sub-items */
+    .sub-items { margin-left: 20px; }
+    .sub-item-form, .update-form, .delete-form, .toggle-form { display: inline-block; margin-right: 10px; } /* Adjusted to make the forms visible and inline */
+    .collapsible-content { display: none; } /* Make sure the collapsible content is hidden by default */
+  </style>
+</head>
+<body>
+    <header>
+      <h2>{{ todolist.name }}</h2>
+    </header>
+  
+    <section>
+      <h2>Tasks</h2>
+      <ul id="item-list">
+        <!-- Define a macro for recursive rendering of tasks -->
+        {% macro render_item(item) %}
+          <li>
+            <!-- Task details and collapsible button -->
+            <div>
+                <!-- Form to update an item -->
+                <form method="POST" action="{{ url_for('update_item', item_id=item.id) }}" class="update-form">
+                  <input type="text" name="name" value="{{ item.name }}" required>
+                  <input type="submit" value="Update">
+                </form>
+
+                <!-- Task details -->
+                {{ item.name }} - {% if item.completed %}Done{% else %}Not Done{% endif %}
+
+                <!-- Form to add a sub-item -->
+                <form method="POST" action="{{ url_for('add_sub_item', item_id=item.id) }}" class="sub-item-form">
+                    <input type="text" name="name" placeholder="Sub-Task Name" required>
+                    <input type="submit" value="Add Sub-Task">
+                </form>
+
+                <!-- Form to toggle the completion status of an item -->
+                <form method="POST" action="{{ url_for('toggle_item', item_id=item.id) }}" class="toggle-form">
+                    {% if item.completed %}
+                        <input type="submit" value="Mark as Not Done">
+                    {% else %}
+                        <input type="submit" value="Mark as Done">
+                    {% endif %}
+                </form>
+
+                <!-- Form to delete an item -->
+                <form method="POST" action="{{ url_for('delete_item', item_id=item.id) }}" class="delete-form">
+                  <input type="submit" value="Delete">
+                </form>
+
+                <!-- Collapsible button -->
+                <button class="collapsible-btn">Toggle Sub-Tasks</button>
+            </div>
+
+            <!-- Collapsible content for sub-items and forms -->
+            <div class="collapsible-content">
+                <!-- Check if the current task has children -->
+                {% if item.children.all()|length > 0 %}
+                  <ul class="sub-items">
+                    <!-- Recursive call to render children -->
+                    {% for child in item.children %}
+                      {{ render_item(child) }}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+            </div>
+          </li>
+        {% endmacro %}
+        
+        <!-- Use the macro to render items -->
+        {% for item in todolist.items if item.parent is none %}
+          {{ render_item(item) }}
+        {% endfor %}
+      </ul>
+    </section>
+  
+    <section>
+      <h2>Add New Task</h2>
+      <form method="POST" action="{{ url_for('new_item') }}">
+        <input type="hidden" name="list_id" value="{{ todolist.id }}">
+        <input type="text" name="name" placeholder="Task Name" required>
+        <input type="submit" value="Add Task">
+      </form>
+    </section>
+  
+    <section>
+      <a href="{{ url_for('home') }}">Back to Lists</a>
+    </section>
+
+    <!-- jQuery script to handle the collapsible functionality -->
+    <script>
+    $(document).ready(function() {
+      // jQuery function to handle click on collapsible button
+      $('.collapsible-btn').click(function() {
+        // Select the next sibling element with the class 'collapsible-content' and toggle its visibility
+        $(this).parent().next('.collapsible-content').slideToggle('fast');
+      });
+    });
+    </script>
+</body>
+</html>
